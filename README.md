@@ -81,6 +81,38 @@ psql -U postgres -l | grep industrial_symbiosis
 ```
 
 If you get authentication errors, you may need to:
+
+### Option C: Run PostgreSQL in Docker (recommended if you have Docker)
+
+If you have Docker Desktop installed on Windows you can run a Postgres container with the defaults used by this project.
+
+1. Start the database using Docker Compose (run from the project root):
+
+```powershell
+docker compose up -d
+```
+
+2. The compose file exposes Postgres on localhost:5432 with the following defaults (matching `database.go`):
+
+- user: `postgres`
+- password: `postgres`
+- database: `industrial_symbiosis`
+
+3. Use the `.env.example` to create a `.env` file and ensure `DATABASE_URL` is set (the default matches the container):
+
+```powershell
+copy .env.example .env
+# then edit .env if you want different credentials
+```
+
+4. Verify Postgres is reachable from your host (PowerShell):
+
+```powershell
+# Wait a few seconds for DB to initialize, then test a connection with psql (if installed)
+psql "host=localhost port=5432 user=postgres password=postgres dbname=industrial_symbiosis"
+```
+
+Note: If you prefer to run both the Go backend and Python worker in Docker as services, we can extend the `docker-compose.yml` to build and run them. For now the compose file only starts Postgres and exposes it to the host so you can continue running the backend and worker locally while using a containerized database.
 ```bash
 # On macOS (if using Homebrew):
 brew services start postgresql
@@ -558,6 +590,8 @@ For issues or questions:
 
 ## License
 
-MIT#   I n d u s t r i a l _ S y m b i o s i s _ P r o t o t y p e  
- #   I n d u s t r i a l _ S y m b i o s i s _ P r o t o t y p e  
+MIT#   I n d u s t r i a l _ S y m b i o s i s _ P r o t o t y p e 
+ 
+ #   I n d u s t r i a l _ S y m b i o s i s _ P r o t o t y p e 
+ 
  

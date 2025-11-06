@@ -59,7 +59,7 @@ func main() {
 		api.GET("/tasks/:task_id", GetTaskStatus)
 
 		// Get industry profile
-		api.GET("/profiles/:profile_id", GetProfile)
+		api.GET("/profiles/:profile_id", GetProfileHandler)
 
 		// Get matches for a profile
 		api.GET("/profiles/:profile_id/matches", GetMatches)

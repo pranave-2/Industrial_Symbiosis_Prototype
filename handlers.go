@@ -77,8 +77,8 @@ func GetTaskStatus(c *gin.Context) {
 	c.JSON(http.StatusOK, task)
 }
 
-// GetProfile returns an industry profile
-func GetProfile(c *gin.Context) {
+// GetProfileHandler returns an industry profile
+func GetProfileHandler(c *gin.Context) {
 	profileID := c.Param("profile_id")
 
 	profile, err := GetProfile(profileID)

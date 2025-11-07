@@ -1,0 +1,12 @@
+Steel Rolling Mill A
+Location: 12.34, 56.78
+
+Inputs:
+- scrap metal (500 tons/month)
+- coal
+- cooling water
+
+Outputs:
+- waste slag (200 tons/month)
+- cooling water discharge (liquid, 500 litres/day)
+- steel rods (primary product)
